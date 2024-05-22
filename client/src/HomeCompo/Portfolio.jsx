@@ -27,7 +27,7 @@ const Portfolio = () => {
 
         <div className="container grid grid-three-column potfolio-img">
           <div className="img-overlay p-btn--1">
-            <img src="Img/Img1.webp" alt="img1" />
+            <img src="Img/img1.webp" alt="img1" />
             <div className="overlay">
               <NavLink to="#" target="_blank" className="common-heading">
                 Project 1

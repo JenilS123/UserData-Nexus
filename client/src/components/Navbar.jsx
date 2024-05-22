@@ -33,7 +33,10 @@ const Navbar = () => {
   return (
     <>
       <header className="header" id="header">
-        <img src="Img/slack_logo.jpg" alt="slack" className="header-img" />
+        <div className="header-name">
+          <img src="Img/slack_logo.jpg" alt="slack" className="header-img" />
+          <h3>UserData - Nexus</h3>
+        </div>
         <nav className="navbar">
           <ul className="navbar-list">
             <li>
@@ -65,12 +68,13 @@ const Navbar = () => {
                   </NavLink>
                 </li>
                 <li>
-                  <a
+                  <NavLink
                     onClick={handleLogout}
+                    to="./login"
                     className="navbar-link content-link logout"
                   >
                     Logout
-                  </a>
+                  </NavLink>
                 </li>
               </>
             ) : (
@@ -93,7 +97,7 @@ const Navbar = () => {
           </ul>
         </nav>
 
-        <div>{user?.names}</div>
+        <h3>{user?.names}</h3>
 
         <div className="mobile-navbar-btn">
           <ion-icon name="menu-outline" className="mobile-nav-icon"></ion-icon>
