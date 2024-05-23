@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 import axios from "axios";
 
-const About = (props) => {
+const About = () => {
   const [redirect, setRedirect] = useState(false);
   const getAboutData = async () => {
     try {
@@ -76,7 +76,6 @@ const About = (props) => {
           </div>
         </div>
       </section>
-      {props.footer}
     </>
   );
 };

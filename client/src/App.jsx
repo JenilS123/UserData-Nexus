@@ -7,7 +7,6 @@ import Service from "./components/Service";
 import Register from "./components/Register";
 import Login from "./components/Login";
 import Error from "./components/Error";
-// import ScrollToTop from "react-scroll-to-top";
 import axios from "axios";
 import { ContextDataProvider } from "./components/Context";
 import Layout from "./components/Layout";
