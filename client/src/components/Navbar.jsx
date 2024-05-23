@@ -6,6 +6,7 @@ import { Navigate } from "react-router-dom";
 
 const Navbar = () => {
   const { user, setUser } = useContext(ContextData);
+  const [mobileNav,setMobileNav] = useState(false)
   const [redirect, setRedirect] = useState(false);
   useEffect(() => {
     try {
@@ -35,7 +36,7 @@ const Navbar = () => {
       <header className="header" id="header">
         <div className="header-name">
           <img src="Img/slack_logo.jpg" alt="slack" className="header-img" />
-          <h3>UserData - Nexus</h3>
+          <h3>USERDATA-NEXUS</h3>
         </div>
         <nav className="navbar">
           <ul className="navbar-list">
@@ -100,8 +101,8 @@ const Navbar = () => {
         <h3>{user?.names}</h3>
 
         <div className="mobile-navbar-btn">
-          <ion-icon name="menu-outline" className="mobile-nav-icon"></ion-icon>
-          <ion-icon name="close-outline" className="mobile-nav-icon"></ion-icon>
+          <ion-icon name="menu-outline" className="mobile-nav-icon" onClick={()=>setMobileNav(true)} ></ion-icon>
+          {/* <ion-icon name="close-outline" className="mobile-nav-icon"></ion-icon> */}
         </div>
       </header>
     </>
