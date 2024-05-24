@@ -7,20 +7,27 @@ import { Navigate } from "react-router-dom";
 const Navbar = () => {
   const { user, setUser } = useContext(ContextData);
   const [redirect, setRedirect] = useState(false);
+  const [toggle, setToggle] = useState(false);
   useEffect(() => {
     try {
-      axios.get("/profile").then(({ data }) => {
-        setUser(data);
-      }).catch((error) => {
-         if (error.response.status === 400) {
-           console.log("profile fetch error ", error);
-         }
-      })
+      axios
+        .get("/profile")
+        .then(({ data }) => {
+          setUser(data);
+        })
+        .catch((error) => {
+          if (error.response.status === 400) {
+            console.log("profile fetch error ", error);
+          }
+        });
     } catch (error) {
-     console.log("catch error ",error);
-      
+      console.log("catch error ", error);
     }
   }, []);
+
+  const toggleButton = () => {
+    setToggle(!toggle);
+  };
 
   const handleLogout = () => {
     axios.post("/logout").then(() => {
@@ -32,13 +39,13 @@ const Navbar = () => {
   }
   return (
     <>
-      <header className="header" id="header">
+      <header className={`header ${toggle ? "active" : ""}`} id="header">
         <div className="header-name">
           <img src="Img/slack_logo.jpg" alt="slack" className="header-img" />
           <h3>USERDATA-NEXUS</h3>
         </div>
         <nav className="navbar">
-          <ul className="navbar-list">
+          <ul className={`navbar-list`}>
             <li>
               <NavLink to="/" className="navbar-link home-link">
                 Home
@@ -100,8 +107,19 @@ const Navbar = () => {
         <h3>{user?.names}</h3>
 
         <div className="mobile-navbar-btn">
-          <ion-icon name="menu-outline" className="mobile-nav-icon" ></ion-icon>
-          {/* <ion-icon name="close-outline" className="mobile-nav-icon"></ion-icon> */}
+          {toggle ? (
+            <ion-icon
+              name="close-outline"
+              className="mobile-nav-icon"
+              onClick={toggleButton}
+            ></ion-icon>
+          ) : (
+            <ion-icon
+              name="menu-outline"
+              className="mobile-nav-icon"
+              onClick={toggleButton}
+            ></ion-icon>
+          )}
         </div>
       </header>
     </>

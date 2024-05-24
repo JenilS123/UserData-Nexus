@@ -756,9 +756,6 @@ footer a:active {
     color: var(--black);
     background: transparent;
   }
-  .header .header-img {
-    width: 45px;
-  }
   .navbar {
     width: 100%;
     height: 100vh;
@@ -897,6 +894,8 @@ footer a:active {
   /* Portfolio */
   .p-btns {
     gap: 2.8rem;
+    display: flex;
+    flex-direction: column;
   }
   .btn {
     padding: 1rem 2rem;
@@ -974,6 +973,11 @@ footer a:active {
 
 /* below 336px */
 @media (max-width: 336px) {
+  .p-btns {
+    gap: 2.8rem;
+    display: flex;
+    flex-direction: column;
+  }
   .section-potfolio .p-btn {
     padding: 1.2rem;
   }
